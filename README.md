@@ -1,7 +1,7 @@
 # Theorycraft-plus
 
-### This is and Extension of Theorycraft for the vanilla server V+
-### I do not take any credits, credits goes to the original owner of this addon.
+### This is an extension of Theorycraft for the vanilla server V+
+### I do not take any credits, credits goes to the original owner of this addon. I will just support it for v+.
 
 Put the Theorycraft folder in \World of Warcraft\Interface\AddOns By default only a few features are enabled, simply type in "/tc" to view the ui, and "/tc more" to list hidden commands.
 

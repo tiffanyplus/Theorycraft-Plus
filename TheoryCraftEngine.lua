@@ -811,7 +811,7 @@ local function GenerateTooltip(frame, returndata, spelldata, spellrank)
 			returndata["damcoef"] = returndata["damcoef"]*newcasttime/returndata["basedotduration"]
 			returndata["casttime"] = newcasttime
 		end
-		returndata["damfinal"] = returndata["plusdam"] * returndata["damcoef"]
+		returndata["damfinal"] = returndata["plusdam"] * returndata["damcoef"]+UnitStat("player",4)*0.33
 	end
 
 	if returndata["critchance"] > 100 then
@@ -1032,9 +1032,9 @@ local function GenerateTooltip(frame, returndata, spelldata, spellrank)
 				end
 			end
 			if spelldata.coa then
-				local tick1 = round((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/24+returndata["damfinal"]*returndata["baseincrease"]/12)
-				local tick2 = round((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/12+returndata["damfinal"]*returndata["baseincrease"]/12)
-				local tick3 = round((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/8+returndata["damfinal"]*returndata["baseincrease"]/12)
+				local tick1 = round(((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/24*2+returndata["damfinal"]*returndata["baseincrease"]/12)/2)
+				local tick2 = round((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/24*2+returndata["damfinal"]*returndata["baseincrease"]/12)
+				local tick3 = round(((returndata["averagedam"]-returndata["damfinal"]*returndata["baseincrease"])/24*2+returndata["damfinal"]*returndata["baseincrease"]/12)*1.5)
 				returndata["averagedamtick"] = tick1..", "..tick2..", "..tick3
 			end
 			if spelldata.starshards then

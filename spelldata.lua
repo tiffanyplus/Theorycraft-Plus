@@ -134,12 +134,20 @@ TheoryCraft_Talents = {
 	{ class="WARRIOR", name="cruelty", bonustype="CritReport", tree=2, number=2, perrank=1 },
 	{ class="WARRIOR", name="onehandspec", bonustype="Onehandmodifier", tree=3, number=16, perrank=0.02 },
 
-	{ class="PALADIN", name="divinestrength", bonustype="strmultiplier", tree=1, number=1, perrank=0.02 },
-	{ class="PALADIN", name="divineint", bonustype="intmultiplier", tree=1, number=2, perrank=0.02 },
-	{ class="PALADIN", name="illumination", bonustype="Holyillum", tree=1, number=9, perrank=0.2 },
-	{ class="PALADIN", name="holypower", bonustype="Holycritchance", tree=1, number=13, perrank=1 },
-	{ class="PALADIN", name="onehandspec", bonustype="Onehandmodifier", tree=2, number=14, perrank=0.02 },
-	{ class="PALADIN", name="conviction", bonustype="CritReport", tree=3, number=7, perrank=1 },
+	{ class="PALADIN", name="divinestrength", bonustype="strmultiplier", tree=1, number=2, perrank=0.02 }, -- Fixed for V+
+	{ class="PALADIN", name="divineint", bonustype="intmultiplier", tree=1, number=3, perrank=0.02 }, -- Fixed for V+
+	{ class="PALADIN", name="illumination", bonustype="Holyillum", tree=1, number=13, perrank=0.2 }, -- Fixed for V+
+	{ class="PALADIN", name="holypower", bonustype="Holycritchance", tree=1, number=6, perrank=1 }, -- Fixed for V+
+	{ class="PALADIN", name="onehandspec", bonustype="Onehandmodifier", tree=2, number=9, perrank=0.02 }, -- Fixed for V+
+	{ class="PALADIN", name="conviction", bonustype="Holycritchance", tree=3, number=2, perrank=1, }, -- Fixed for V+
+	{ class="PALADIN", name="conviction", bonustype="Healingcritchance", tree=3, number=2, perrank=-1, dontlist=1 }, -- Fixed for V+
+	{ class="PALADIN", name="searinglight", bonustype="Damagemodifier", tree=1, number=19, perrank=0.03 }, -- Fixed for V+
+	{ class="PALADIN", name="imppurifying", bonustype="Exorcismcritchance", tree=1, number=12, perrank=10, }, -- Fixed for V+
+	{ class="PALADIN", name="imppurifying", bonustype="Holy Wrathcritchance", tree=1, number=12, perrank=10, dontlist=1 }, -- Fixed for V+
+	{ class="PALADIN", name="imppurifying", bonustype="Hammer of Wrathcritchance", tree=1, number=12, perrank=10, dontlist=1 }, -- Fixed for V+
+	{ class="PALADIN", name="healinglight", bonustype="Flash of Lightcritchance", tree=1, number=18, perrank=2 }, -- Fixed for V+
+	{ class="PALADIN", name="crusade", bonustype="Allspiritual", tree=3, number=17, perrank=0.06 }, -- Fixed for V+
+	
 
 	{ class="SHAMAN", name="convection", bonustype="Shockmanacost", tree=1, number=1, perrank=0.02, forceonly=1 },
 	{ class="SHAMAN", name="convection", bonustype="Lightningmanacost", tree=1, number=1, perrank=0.02, forceonly=1, dontlist=1 },
@@ -227,37 +235,37 @@ TheoryCraft_Spells = {
 			Schools={ } },
 		},
 	["WARLOCK"] = {
-		{ id="Shadow Bolt", level1=1, level1per=1.7/3, level2=6, level2per=2.2/3, level3=12, level3per=2.8/3, percent=3/3.5, dodps=1, cancrit=1,
+		{ id="Shadow Bolt", level1=1, level1per=1.7/3, level2=6, level2per=2.2/3, level3=12, level3per=2.8/3, percent=0.856784, dodps=1, cancrit=1,
 			Schools={ "All", "Damage", "Shadow", "Destruction" } },
 		{ id="Soul Fire", percent=1, cancrit=1, dodps=1, dontdomax=1,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
-		{ id="Searing Pain", level1=18, percent=1.5/3.5, dodps=1, cancrit=1,
+		{ id="Searing Pain", level1=18, percent=0.396147, dodps=1, cancrit=1,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
-		{ id="Immolate", level1=1, level2=10, percent=0.198, percentdot=0.653, dodps=1, cancrit=1, hasdot=1, tickinterval=3,
+		{ id="Immolate", level1=1, level2=10, percent=0.206215, percentdot=0.653, dodps=1, cancrit=1, hasdot=1, tickinterval=3,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
 --		{ id="Firebolt", percent=0, dodps=1, cancrit=1, petspell=1, showmore=1,
 --			Schools={ } },
 --		{ id="Lash of Pain", percent=0, dodps=1, overcooldown=1, cancrit=1, petspell=1, showmore=1, dontdomax=1,
 --			Schools={ } },
-		{ id="Conflagrate", percent=1.5/3.5, dodps=1, cancrit=1, dontdomax=1,
+		{ id="Conflagrate", percent=0.4265536723163842, dodps=1, cancrit=1, dontdomax=1,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
-		{ id="Rain of Fire", percent=1/3, dodps=1, aoe=1, casttime=8, regencasttime=8, tickinterval=2,
+		{ id="Rain of Fire", percent=0.33, dodps=1, aoe=1, casttime=8, regencasttime=8, tickinterval=2,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
-		{ id="Hellfire", percent=1/3.5/3*0.22, dodps=1, aoe=1, casttime=1, regencasttime=15, hellfire=1, tickinterval=1, manamultiplier=1/15,
+		{ id="Hellfire", percent=0.019775, dodps=1, aoe=1, casttime=1, regencasttime=15, hellfire=1, tickinterval=1, manamultiplier=1/15,
 			Schools={ "All", "Damage", "Fire", "Destruction" } },
 		{ id="Corruption", percent=1, dodps=1, basedotduration=18, dontdomax=1, isdot=1, tickinterval=3,
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
-		{ id="Curse of Agony", level1=8, level2=18, isdot=1, percent=1, dodps=1, basedotduration=24, dontdomax=1, coa=1, talentsbeforegear=1, 
+		{ id="Curse of Agony", level1=8, level2=18, isdot=1, percent=1.9661016949152542, dodps=1, basedotduration=24, dontdomax=1, coa=1, talentsbeforegear=1, 
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
 		{ id="Curse of Doom", isdot=1, percent=1, dodps=1, basedotduration=60, dontdomax=1, talentsbeforegear=1,
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
-		{ id="Drain Soul", level1=10, percent=0.5, dodps=1, casttime=15, regencasttime=15, isdot=1, tickinterval=3,
+		{ id="Drain Soul", level1=10, percent=1, dodps=1, casttime=15, regencasttime=15, isdot=1, tickinterval=3,
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
 		{ id="Siphon Life", percent=1/20, dodps=1, casttime=3, regencasttime=1.5, manamultiplier=1/10, tickinterval=3, dontdomax=1, drain=1, talentsbeforegear=1, dontdpsafterresists=1, 
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
 		{ id="Drain Life", level1=14, percent=1/10, dodps=1, casttime=1, regencasttime=1, manamultiplier=1/5, tickinterval=1, drain=1, talentsbeforegear=1, dontdpsafterresists=1, -- old percent=1/3.5*0.36
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
-		{ id="Death Coil", percent=1.5/3.5*0.5, dodps=1, deathcoil=1, dontdomax=1, drain=1, talentsbeforegear=1,
+		{ id="Death Coil", percent=0.225, dodps=1, deathcoil=1, dontdomax=1, drain=1, talentsbeforegear=1,
 			Schools={ "All", "Damage", "Shadow", "Affliction" } },
 		{ id="Shadowburn", percent=1.5/3.5, cancrit=1, dodps=1, dontdomax=1,
 			Schools={ "All", "Damage", "Shadow", "Destruction" } },
@@ -275,7 +283,7 @@ TheoryCraft_Spells = {
 			Schools={ "All", "Damage", "Shadow" } },
 		{ id="Smite", level1=1, level2=6, level3=14, level1per=1.5/3.5, level2per=2/3.5, percent=2.5/3.5, dodps=1, cancrit=1,
 			Schools={ "All", "Damage", "Holy", "Divinefury", "SearingLight" } },
-		{ id="Holy Fire", percent=0.75, percentdot=0.25, dodps=1, cancrit=1, hasdot=1,
+		{ id="Holy Fire", percent=0.60, percentdot=0.263, dodps=1, cancrit=1, hasdot=1,
 			Schools={ "All", "Damage", "Holy", "Divinefury", "SearingLight" } },
 		{ id="Holy Nova", percent=1.5/3.5/3*0.8, percentheal=0.11, dodps=1, cancrit=1, holynova=1,
 			Schools={ "All", "Damage", "Holy", "MentalAgility" } },
@@ -289,7 +297,7 @@ TheoryCraft_Spells = {
 			Schools={ "All", "Healing", "Holy", "Divinefury", "ImpHealing" } },
 		{ id="Flash Heal", percent=1.5/3.5, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
 			Schools={ "All", "Healing", "Holy" } },
-		{ id="Greater Heal", percent=3/3.5, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
+		{ id="Greater Heal", percent=0.856, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
 			Schools={ "All", "Healing", "Holy", "Divinefury", "ImpHealing" } },
 		{ id="Devouring Plague", binary=1, percent=1/2, isdot=1, dodps=1, basedotduration=24, dontdomax=1,
 			Schools={ "All", "Damage", "Shadow", "MentalAgility" } },
@@ -373,7 +381,9 @@ TheoryCraft_Spells = {
 			Schools={ "Melee" } },
 		},
 	["PALADIN"] = {
-		{ id="Flash of Light", percent=1.5/3.5, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
+		{ id="Crusader Strike", ismelee=1, cancrit=1, armor=1,
+			Schools={ "Melee" } },
+		{ id="Flash of Light", percent=1.5/5, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
 			Schools={ "All", "Healing", "Holy" } },
 		{ id="Holy Light", level1=1, level2=6, level3=14, percent=2.5/3.5, isheal=1, dodps=1, cancrit=1, talentsbeforegear=1,
 			Schools={ "All", "Healing", "Holy" } },
@@ -392,7 +402,7 @@ TheoryCraft_Spells = {
 		{ id="Holy Shock", percent=1.5/3.5, percentheal=1.5/3.5, cancrit=1, holynova=1, dontdomax=1, dodps=1,
 			Schools={ "All", "Damage", "Holy" } },
 		{ id="Seal of the Crusader", isseal=1, percent=0, crusader=1, dodps=1, dontresist=1,
-			Schools={} },
+			Schools={ } },
 		},
 	["SHAMAN"] = {
 		{ id="Chain Lightning", percent=2.5/3.5, dodps=1, cancrit=1, aoe=1, dontdomax=1,
@@ -459,12 +469,12 @@ TheoryCraft_CritChance = {
 	["WARRIOR"] 	= { 20, 20, 0, 0 },
 
 	["MAGE"] 	= { 20, 59.5, 0, 0.2 },
-	["PRIEST"] 	= { 20, 59.5, 0, 0.8 },
+	["PRIEST"] 	= { 20, 59.2, 0, 0.8 },
 	["WARLOCK"] 	= { 20, 60.6, 0, 1.7 },
 	["DRUID"] 	= { 20, 60, 0.9, 1.8 },
 
-	["PALADIN"] 	= { 20, 29.5, 0.75, 0 },
-	["SHAMAN"] 	= { 20, 59.2, 0, 2.3 },
+	["PALADIN"] 	= { 20, 54, 0.75, 0 },
+	["SHAMAN"] 	= { 20, 59.5, 0, 2.3 },
 }
 
 local setwear = { "Finger0", "Finger1", "Trinket0", "Neck", "Trinket1", "Back", "MainHand", "SecondaryHand", 

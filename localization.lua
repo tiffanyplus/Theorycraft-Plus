@@ -162,13 +162,13 @@ TheoryCraft_MeleeMinMaxReader = {
 TheoryCraft_MeleeMinMaxReplacer = {
 	{ search = " causing %d+ to %d+ damage, modified by attack power, ",				-- Shield Slam
 	  replacewith = " causing $damage$ damage " },
-	{ search = " deals %d+%% weapon damage and ",							-- Scattershot / Ghostly
+	{ search = " deals %d+%% weapon damage and ",							     -- Scattershot / Ghostly
 	  replacewith = " deals $damage$ damage and " },
 	{ search = " causing damage equal to %d+%% of your attack power",				-- Bloodthirst
 	  replacewith = " causing $damage$ damage" },
 	{ search = "Increases the druid's next attack by %d+ damage",					-- Maul
 	  replacewith = "Your next attack causes $damage$ damage" },
-	{ search = " causing %d+% additional damage",							-- Claw
+	{ search = " causing %d+% additional damage",							    -- Claw
 	  replacewith = " causing $damage$ damage" },
 	{ search = " causing %d+%% weapon damage plus %d+ to the target",				-- Backstab
 	  replacewith = " causing $damage$ damage" },
@@ -180,7 +180,7 @@ TheoryCraft_MeleeMinMaxReplacer = {
 	  replacewith = " that deals $damage$ damage to the target" },
 	{ search = " increases ranged damage by %d+",							-- Aimed Shot
 	  replacewith = " causes $damage$ damage to the target" },
-	{ search = " for an additional %d+ damage",							-- Multi-Shot
+	{ search = " for an additional %d+ damage",							    -- Multi-Shot
 	  replacewith = " for $damage$ damage" },
 	{ search = " deals weapon damage plus %d+ and ",						-- Mortal Strike
 	  replacewith = " deals $damage$ damage and " },
@@ -198,8 +198,10 @@ TheoryCraft_MeleeMinMaxReplacer = {
 	  replacewith = "that causes $damage$ damage," },
 	{ search = "and doing (%d+) damage to them",							-- Thunder Clap
 	  replacewith = "and doing $damage$ damage to them" },
-	{ search = " causing weapon damage ",						-- Whirlwind
+	{ search = " causing weapon damage ",						            -- Whirlwind
 	  replacewith = " causing $damage$ damage " },
+	{ search = " deals weapon damage and consecrates ",						-- Crusader Strike                  -- Fixed for V+
+	  replacewith = " deals $damage$ damage and consecrates " },
 }
 
 TheoryCraft_SpellMinMaxReader = {
@@ -216,6 +218,9 @@ TheoryCraft_SpellMinMaxReader = {
 
 	{ pattern = "horror for 3 sec and causes (%d+) Shadow damage",					-- Death Coil
 		type={"bothdamage"} },
+
+	{ pattern = "melee attacks cause an additional (%d+) to (%d+) Holy damage",	-- seal of righteousness
+		type={"mindamage", "maxdamage"} },
 
 	{ pattern = "(%d+) to (%d+)(.+)and another (%d+) to (%d+)",					-- Generic Hybrid spell
 		type={"mindamage", "maxdamage", "tmptext", "dotmindamage", "dotmaxdamage"} },
@@ -306,7 +311,9 @@ TheoryCraft_Locale = {
 		autoshotbefore = "Shoots the target for ",
 		autoshotafter = ".",
 		shooterror = "No wand equipped.",
-		crusader = "granting %d+ melee attack power",
+		crusader = "increasing damage done by Holy effects and melee attack power by %d+",
+		righteousness = "granting each melee attack an additional %d+ to %d+ Holy damage",
+		-- crusader = "granting %d+ melee attack power",
 	},
 	SpellTranslator = {
 		["Frostbolt"] = "Frostbolt",
@@ -406,6 +413,7 @@ TheoryCraft_Locale = {
 		["Seal of Command"] = "Seal of Command",
 		["Seal of Righteousness"] = "Seal of Righteousness",
 		["Holy Shock"] = "Holy Shock",
+		["Crusader Strike"] = "Crusader Strike",
 
 		["Chain Lightning"] = "Chain Lightning",
 		["Lightning Bolt"] = "Lightning Bolt",
@@ -494,7 +502,7 @@ TheoryCraft_Locale = {
 		{ id="mortalshots", translated="Mortal Shots" },
 		{ id="rws", translated="Ranged Spec" },
 		{ id="barrage", translated="Barrage" },
-		{ id="humanoidslaying", translated="Humanoid" },
+		{ id="humanoidslaying", translated="Humananoid" },
 		{ id="monsterslaying", translated="Monster" },
 		{ id="savagestrikes", translated="Savage" },
 		{ id="survivalist", translated="Survivalist" },
@@ -565,6 +573,9 @@ TheoryCraft_Locale = {
 		{ id="illumination", translated="Illumination" },
 		{ id="holypower", translated="Holy Power" },
 		{ id="conviction", translated="Conviction" },
+		{ id="imppurifying", translated="Imp Purifying" },
+		{ id="searinglight", translated="Searing Light" },
+		{ id="crusade", translated="Crusade" },
 -- Rogue
 		{ id="malice", translated="Malice" },
 		{ id="lethality", translated="Lethality" },
@@ -586,6 +597,7 @@ TheoryCraft_Locale = {
 		{ id="Deathmist", translated="Deathmist Raiment" },
 		{ id="Felheart", translated="Felheart Raiment" },
 		{ id="Nemesis", translated="Nemesis Raiment" },
+		{ id="Plagueheart", translated="Plagueheart Raiment" },
 
 		{ id="Devout", translated="Vestments of the Devout" },
 		{ id="Virtuous", translated="Vestments of the Virtuous" },
@@ -709,20 +721,24 @@ TheoryCraft_PrimarySchools = {
 -- Checks every buff for these
 
 TheoryCraft_Buffs = {
-	{ text="damage done increases by (%d+)%%", type="Damagebaseincrease", amount="n/100" },   							-- General's Warcry
+	{ text="damage done increases by (%d+)%%", type="Damagebaseincrease", amount="n/100" },   							-- General buff in av
 	{ text="Ignore (%d+) of enem.+armor", type="Sunder" },   							-- Bonereaver's Edge
 	{ text="Increases Healing Wave's effect by up to (%d+)%%.", type="Healing Wavetalentmod", amount="n/100" },  	-- Healing Way
 	{ text="Restores (%d+)%% of total Mana every 4 sec%.", type="FelEnergy", amount="n/100" },   			-- Fel Energy
 	{ text="Magical damage dealt.-increase.-(%d+)", type="All" },   						-- Very Berry/Eye of Moam
 	{ text="Magical resistances of your spell targets reduced by (%d+)", type="Allpenetration" },   		-- Eye of Moam
 	{ text="Increases damage and healing done by magical spells and effects by up to (%d+)%.", type="All" },   	-- Elements/Five Thunders
-	{ text="Melee attack power increased by (%d+)%.  Melee attacks are %d+%% faster, but deal less damage%.", type="AttackPowerCrusader" }, -- Seal of the crusader
+	{ text="Damage done by Holy spells and effects and Melee attack power increased by .-(%d+)", type="Damage" }, -- Seal of the crusader
+	{ text="Melee attack power increased by (%d+)%.", type="AttackPowerCrusader" }, -- Seal of the crusader
+	-- { text="Damage done by Holy spells and effects and Melee attack power increased by (%d+)%%.", type="Holybaseincrease", amount=200 }, -- Seal of the crusader
+	{ text="Holy damage done by (%d+)%%%.", type="Damagebaseincrease", amount=0.10 },		-- Sanctity aura
+	{ text="Increased healing done by .-(%d+)", type="Healing" },		-- seal of light
 	{ text="(%d+) mana regen per tick%.", type="manaperfive" },							-- Warchief's blessing
 	{ text="Gain (%d+) mana every 2 seconds%.", type="manaperfive", amount="totem" },				-- Totems
-	{ text="Receives up to (%d+) extra healing from Holy Light spells", type="Holy Light", amount="hl", target = "target"},	-- Blessing of light
+	{ text="Receives up to (%d+) extra healing from Holy Light and Holy Shock spells", type="Holy Light", amount="hl", target = "target"},	-- Blessing of light
 	{ text="(%d+) extra healing from Flash of Light spells%.", type="Flash of Light", amount="fol", target = "target" },	-- Blessing of light
-	{ text="Holy Shock spell increased by 100%%", type="Holycritchance", amount=100 },				-- Divine Favor
-	{ text="Holy Shock spell increased by 100%%", type="Holy Shockcritchance", amount=100 },			-- Divine Favor
+	{ text="Holy spell increased by 100%%", type="Holycritchance", amount=100 },				-- Divine Favour
+	-- { text="Holy spell increased by 100%%", type="Holy Shockcritchance", amount=100 },			-- Divine Favour
 	{ text="Increases critical strike chance from Fire damage spells by (%d+)%%", type="Firecritchance" },		-- Combustion in 1.11
 	{ text="Spell effects increased by (%d+)%.", type="All" },							-- Spell Blasting
 	{ text="Mana cost of your next spell is reduced by 100%%%.", type="Holycritchance", amount=25 },		-- Inner Focus
@@ -734,22 +750,26 @@ TheoryCraft_Buffs = {
 	{ text="Increases damage caused by (%d+)%%%.", type="Allbaseincrease", amount="n/100" },			-- Master Demonologist Succubus
 	{ text="Shadow damage increased by (%d+)%%%.", type="Shadowbaseincrease", amount="n/100" },			-- Touch of Shadow Demonic Sacrifice Succubus
 	{ text="Melee damage increased by (%d+)%%%.", type="Meleebaseincrease", amount="n/100" },			-- Enrage
---[[]]	{ text="100%% Mana regeneration may continue while casting", type="ICPercent", amount=4 }, 			-- Innervate
---[[]]	{ text="(%d+)%% of your mana regeneration to continue while", type="ICPercent", amount="n/100" },		-- Mage Armor
+	{ text="100%% Mana regeneration may continue while casting", type="ICPercent", amount=4 }, 			-- Innervate
+	{ text="(%d+)%% of your mana regeneration to continue while", type="ICPercent", amount="n/100" },		-- Mage Armor
 	{ text="schoolname spell damage increased by up to (%d+)%." },							-- Elixir of frost power
-	{ text="Increases spell fire damage by up to (%d+)%.", type="Fire" },						-- Elixir of Greater Firepower
+	{ text="Increases spell fire damage by up to (%d+)%.", type="Fire" },						-- Elixir of greater firepower
 	{ text="Spell damage and healing done increased by (%d+)%%%.", type="Allbaseincrease", amount="n/100" },	-- Power Infusion
 	{ text="Increased damage and mana cost for your spells%.", type="Damagemodifier", amount=0.35 },		-- Arcane Power
 	{ text="(%d+) [mM]ana every 5 seconds%.", type="manaperfive" }, 						-- Blessing of Wisdom/Nightfin soup
 	{ text="Mana Regeneration increased by (%d+) every 5 seconds%.", type="manaperfive" }, 				-- Safefish Well Fed
 	{ text="Spell damage increased by .-(%d+)", type="Damage" }, 							-- Flask of Supreme Power / ZHC Damage
 	{ text="spell critical chance.-(%d+)", type="Allcritchance" },							-- Moonkin Aura/Fire Festival Fury
-	{ text="Magical damage and healing dealt is increased by (%d+)", type="All" },					-- Trinket Ephemeral Power
+	{ text="Magical damage and healing dealt is increased by (%d+)", type="All" },					-- ToEP
 	{ text="Healing increased by up to (%d+)", type="Healing" },							-- ZHC Healing
 	{ text="In addition, both the demon and master will inflict (%d+)%% more damage%.", type="Allbaseincrease", amount="n/100" },	-- Soul Link
+		
 }
 
 TheoryCraft_Debuffs = {
+
+	--{ text="Increases magic damage taken by up to 75 and healing by up to (%d+).", type="Healing", amount=150 },						-- healing wave
+	--{ text="Increases Healing Wave's effect by up to (%d+)", type="Healing Waveincrease" },							-- healing wave
 	{ text="Armor decreased by (%d+)%.", type="Sunder" },   							-- Sunder Armor
 	{ text="Armor decreased%.", type="DontMitigate", amount=1 },							-- Expose Armor
 	{ text="Frost spells have a (%d+)%% ", type="Frostcritchance" },   						-- Winter's Chill
@@ -759,10 +779,13 @@ TheoryCraft_Debuffs = {
 	{ text="Reduces Fire and Frost resistances by (%d+)%.", type="Frostpenetration" },				-- Curse of the Elements
 	{ text="Increases Fire and Frost damage taken by (%d+)%%%.", type="Firebaseincrease", amount="n/100" },		-- Curse of the Elements
 	{ text="Increases Fire and Frost damage taken by (%d+)%%%.", type="Frostbaseincrease", amount="n/100" },	-- Curse of the Elements
+	{ text="Shadow damage increased by (%d+)%%%.", type="Shadowbaseincrease", amount="n/100" },	-- Improved Shadow Bolt, Shadow Weaving
+	{ text="Increases Fire damage taken by (%d+)%%%.", type="Firebaseincrease", amount="n/100" },	-- Improved Scorch
 	{ text="Shadow and Arcane damage taken increased by (%d+)%%%.", type="Shadowbaseincrease", amount="n/100" },	-- Curse of shadows
 	{ text="Shadow and Arcane damage taken increased by (%d+)%%%.", type="Arcanebaseincrease", amount="n/100" },	-- Curse of shadows
 	{ text="Reduces Shadow and Arcane resistances by (%d+)%.", type="Shadowpenetration" },				-- Curse of Shadows
 	{ text="Reduces Shadow and Arcane resistances by (%d+)%.", type="Arcanepenetration" },				-- Curse of Shadows
+	{ text="Increases Nature damage taken by (%d+)%%.", type="Nature" },						-- Stormstrike
 	{ text="Increases Holy damage taken by up to (%d+)%%.", type="Holy" },						-- Judgement of Crusader
 	{ text="Frozen in place%.", type="doshatter", amount=1 },							-- Frost Nova
 	{ text="Frozen%.", type="doshatter", amount=1 },								-- Freezing Band?
@@ -784,7 +807,7 @@ TheoryCraft_DotDurations = {
 
 TheoryCraft_EquipEveryRight = {
 	{ text="^Speed (%d+%.?%d+)", type="OffhandSpeed", slot="SecondaryHand" },	-- Weapon Damage
-	{ text="^Speed (%d+%.?%d+)", type="MainSpeed", slot="MainHand" },		-- Weapon Damage
+	{ text="^Speed (%d+%.?%d+)", type="MainSpeed", slot="MainHand" },		-- Weapon Damage	
 	{ text="^Speed (%d+%.?%d+)", type="RangedSpeed", slot="Ranged" },		-- Weapon Damage
 	{ text="^Dagger", type="MeleeAPMult", amount=-0.7, slot="MainHand" },		-- Weapon Damage
 	{ text="^Dagger", type="DaggerEquipped", amount=1, slot="MainHand" }	,	-- Used for dagger spec
@@ -820,19 +843,19 @@ TheoryCraft_EquipEveryLine = {
 	{ text="Weapon Damage %+(%d+)", type="OffhandMax", slot="SecondaryHand" },	-- Weapon Damage enchant
 
 	{ text="%+(%d+) schoolname Spell Damage" },					-- of wrath items
-	{ text="schoolname Damage %+(%d+)" },						-- AQ Glove enchants
-	{ text="Healing and Spell Damage %+(%d+)", type="All", me=1 },			-- Hoodoo Hex
+	{ text="schoolname Damage +(+%d+)" },						-- AQ Glove enchants
+	{ text="Healing and Spell Damage %+(%d+)", type="All", me=1 },			-- zg enchant
 	{ text="%+(%d+) Healing", type="Healing" },					-- of healing items
 	{ text="%+(%d+) Damage and Healing Spells", type="All" },			-- of sorcery items
-	{ text="schoolname Spell Damage %+(%d+)", me=1 }, 				-- Enchant Weapon - Winter's Might
-	{ text="Spell Damage %+(%d+)", type="All", me=1 }, 				-- Enchant Weapon - Spell Power
-	{ text="Healing Spells %+(%d+)", type="Healing" },				-- Prophetic Aura
-	{ text="+(%d+) Spell Damage and Healing", type="All" }, 			-- Zandalar Signet of Mojo
+	{ text="schoolname Spell Damage %+(%d+)", me=1 }, 				-- Winter's Might
+	{ text="Spell Damage %+(%d+)", type="All", me=1 }, 				-- Spell Damage +30 enchant
+	{ text="Healing Spells %+(%d+)", type="Healing" },				-- zg priest and healing enchant
+	{ text="++(%d+) Spell Damage and Healing", type="All" }, 			-- not sure
 
 	{ text="Use: Restores 375 to 625 mana%.", type="manarestore", amount="500" },    -- Robe of the Archmage
 
-	{ text="Spell Hit %+(%d+)%%", type="Allhitchance" },				-- Presence of Sight
-	{ text="%/Hit %+(%d+)%%", type="Meleehitchance" },					-- Falcon's Call
+	{ text="Spell Hit %+(%d+)%%", type="Allhitchance" },				-- zg enchant
+	{ text="%/Hit %+(%d+)%%", type="Meleehitchance" },					-- Hunter Leg/Helm enchant
 
 	{ text="^.(%d+) mana every 5 sec%.", type="manaperfive" },			-- of restoration
 	{ text="Mana Regen %+(%d+)/", type="manaperfive" },				-- zg enchant
@@ -867,6 +890,10 @@ TheoryCraft_SetsDequipOnly= {
 -- Checks every line beginning Set: for these
 
 TheoryCraft_Sets = {
+
+	{ text="(%d+)%%% increased damage on your Immolate spell.", type="Immolatemodifier", amount="n/100"},   	-- Plagueheart set bonus
+	{ text="Reduces health cost of your Life Tap by (%d+)%%%.", type="Life Tapmodifier", amount="n/100"},   	-- Plagueheart set bonus
+	{ text="Increases damage caused by your Corruption by (%d+)%%%.", type="Corruptionmodifier", amount="n/100"},   	-- Plagueheart set bonus
 	{ text="(%d+)%% of your Mana regeneration to continue while casting", type="ICPercent", amount="n/100" }, 	     	-- Stormrage/Trans
 	{ text="Your normal ranged attacks have a 4%% chance of restoring 200 mana%.", type="Beastmanarestore", amount=200 },	-- Beaststalker/Beastmaster
 	{ text="Health or Mana gained from Drain Life and Drain Mana increased by 15%%%.", type="Drain Lifeillum", amount=0.15 },	-- Felheart 3 piece bonus
@@ -1606,6 +1633,24 @@ TheoryCraft_SetBonuses = {
 		[4] = {
 			["pieces"] = 5,
 			["text"] = "Increases damage and healing done by magical spells and effects by up to 23.",
+		},
+	},
+	["Plagueheart Raiment"] = {
+		[1] = {
+			["pieces"] = 2,
+			["text"] = "Your Shadow Bolts now have a chance to heal you for 270 to 331.",
+		},
+		[2] = {
+			["pieces"] = 4,
+			["text"] = "Increases damage caused by your Corruption by 12%.",
+		},
+		[3] = {
+			["pieces"] = 6,
+			["text"] = "Your spell critical hits generate 25% less threat. In addition, Corruption, Immolate, Curse of Agony, and Siphon Life generate 25% less threat.",
+		},
+		[4] = {
+			["pieces"] = 8,
+			["text"] = "Reduces health cost of your Life Tap by 12%.",
 		},
 	},
 	["version"] = "1.04 Final Beta 2",

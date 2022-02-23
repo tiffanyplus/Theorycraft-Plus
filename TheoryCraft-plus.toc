@@ -1,0 +1,9 @@
+## Interface: 11200
+## Author: Aelian, Updated by Tiffany
+## Title: [|cff3fcf26K|r] TheoryCraft-plus -2.1
+## Notes: Tells you everything about an ability, right on the tooltip. Updated and maintained by Tiffany for V+
+## Version: 1.06.6+
+## SavedVariablesPerCharacter: TheoryCraft_Settings
+## SavedVariables: TheoryCraft_SetBonuses, TheoryCraft_MitigationMobs, TheoryCraft_MitigationPlayers
+## DefaultState: enabled
+TheoryCraft.xml

@@ -23,10 +23,10 @@ local function TheoryCraft_AddAllTalents(data, ignoreforce)
 	data["healthmultiplier"] = 1
 	local _, race = UnitRace("player")
 	if (race == "Gnome") then
-		data["intmultiplier"] = 1.05
+		data["intmultiplier"] = 1.1
 	end
 	if (race == "Human") then
-		data["spiritmultiplier"] = 1.05
+		data["spiritmultiplier"] = 1.1
 	end
 	if (race == "Tauren") then
 		data["healthmultiplier"] = 1.05

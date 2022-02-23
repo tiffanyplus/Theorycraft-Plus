@@ -32,10 +32,10 @@ TheoryCraft_Data.Talents["healthmultiplier"] = 1
 local _, class = UnitClass("player")
 local _, race = UnitRace("player")
 if (race == "Gnome") then
-	TheoryCraft_Data.Talents["intmultiplier"] = 1.05
+	TheoryCraft_Data.Talents["intmultiplier"] = 1.1
 end
 if (race == "Human") then
-	TheoryCraft_Data.Talents["spiritmultiplier"] = 1.05
+	TheoryCraft_Data.Talents["spiritmultiplier"] = 1.1
 end
 if (race == "Tauren") then
 	TheoryCraft_Data.Talents["healthmultiplier"] = 1.05
@@ -582,8 +582,7 @@ function TheoryCraft_GLOCK_UpdateResist(this, arg1)
 	getglobal("TheoryCraftresist"..this.TCType):SetText(TheoryCraft_Settings["resistscores"][this.TCType])
 end
 
--- Support for Bongos
-if BActionButton and type(BActionButton) == "table" then
+	if BActionButton and type(BActionButton) == "table" then
 		TheoryCraft_Data["oldBongo"] = BActionButton.Create
 		function TheoryCraft_BActionButtonCreate(index, bar)
 			local tmp = TheoryCraft_Data["oldBongo"](index, bar)
@@ -591,7 +590,7 @@ if BActionButton and type(BActionButton) == "table" then
 			return tmp
 		end
 		BActionButton.Create = TheoryCraft_BActionButtonCreate
-end
+	end
 
 function TheoryCraft_OnEvent()
 	local UIMem = gcinfo()

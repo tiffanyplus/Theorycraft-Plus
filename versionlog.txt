@@ -1,6 +1,42 @@
 
-Version 1.06.6
-	- Added Support for SuperMacro and regular macros: display average numbers on buttons w/ macros (Blizzard bars, Discord AB, Bongos, Bartender2)
+
+Version 1.06.6+ Vanilla+ server
+	- Change/Improvements
+	- Added support for "Crusader Strike"
+	- Added support for talent "Divine Intellect" to include changes
+	- Added support for talent "Divine Strength" to include changes
+	- Added support for talent "Holy Power" to include changes
+	- Added support for talent "Improved Purifying" to include changes
+	- Added support for talent "Searing Light" to include changes
+	- Added support for talent "Conviction" to include changes
+	- Added support for talent "Crusade" to include changes
+	- Added support for talent and spell "Sanctity Aura" to include changes
+	- Added correct calculations for "Holy Light"
+	- Added correct calculations for "Flash of Light"
+	- Added correct calculations for "Holy Shock"
+	- Added correct calculations for "Exorcism"
+	- Added correct calculations for "Consecration"
+	- Added correct calculations for "Hammer of Wrath"
+	- Added correct calculations for "Crusader Strike"
+	- Fixed "Blessing of Light" to Include "Holy Shock" calculations
+	- "Seal of light" display correct calculations for healing
+	- "Seal of the Crusader" display correct calculations for holy spells and effects
+
+Version Kronos
+	-Change/Improvements
+	- Included "Improved Shadow Bolt" to shadow calculations
+	- Included "Shadow Weaving" to shadow calculations
+	- Included "Improved Scorch" to fire calculations
+	- Included "Stormstrike" to nature calculations
+	- included "Plagueheart corruption set bonus" to corruptions calculations
+	
+	-Todo-List:
+	- need to add healing buff/debuffs to calculations
+	- fix lifetap feature
+	- adjust curse of agony to show correct dot damage
+	
+	-Bugs:
+	- lifetap feature still bugged and is applied to all abilities except lifetap at the moment	
 
 Version 1.06.5
 	- Changing action bar pages finally works with button text

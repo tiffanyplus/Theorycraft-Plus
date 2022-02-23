@@ -1,0 +1,10 @@
+## Interface: 11200
+## Author: Aelian
+## Title: TheoryCraft
+## Notes: Tells you everything about an ability, right on the tooltip.
+## Notes-ruRU: Сообщает вам всю информацию о способностях в окне всплывающей подсказки.
+## Version: 1.06.6
+## SavedVariablesPerCharacter: TheoryCraft_Settings
+## SavedVariables: TheoryCraft_SetBonuses, TheoryCraft_MitigationMobs, TheoryCraft_MitigationPlayers
+## DefaultState: enabled
+TheoryCraft.xml

@@ -575,7 +575,9 @@ TheoryCraft_Locale = {
 		{ id="conviction", translated="Conviction" },
 		{ id="imppurifying", translated="Imp Purifying" },
 		{ id="searinglight", translated="Searing Light" },
+		{ id="lightsmercy", translated="Lights Mercy" },
 		{ id="crusade", translated="Crusade" },
+
 -- Rogue
 		{ id="malice", translated="Malice" },
 		{ id="lethality", translated="Lethality" },
@@ -730,7 +732,6 @@ TheoryCraft_Buffs = {
 	{ text="Increases damage and healing done by magical spells and effects by up to (%d+)%.", type="All" },   	-- Elements/Five Thunders
 	{ text="Damage done by Holy spells and effects and Melee attack power increased by .-(%d+)", type="Damage" }, -- Seal of the crusader
 	{ text="Melee attack power increased by (%d+)%.", type="AttackPowerCrusader" }, -- Seal of the crusader
-	-- { text="Damage done by Holy spells and effects and Melee attack power increased by (%d+)%%.", type="Holybaseincrease", amount=200 }, -- Seal of the crusader
 	{ text="Holy damage done by (%d+)%%%.", type="Damagebaseincrease", amount=0.10 },		-- Sanctity aura
 	{ text="Increased healing done by .-(%d+)", type="Healing" },		-- seal of light
 	{ text="(%d+) mana regen per tick%.", type="manaperfive" },							-- Warchief's blessing
@@ -738,7 +739,6 @@ TheoryCraft_Buffs = {
 	{ text="Receives up to (%d+) extra healing from Holy Light and Holy Shock spells", type="Holy Light", amount="hl", target = "target"},	-- Blessing of light
 	{ text="(%d+) extra healing from Flash of Light spells%.", type="Flash of Light", amount="fol", target = "target" },	-- Blessing of light
 	{ text="Holy spell increased by 100%%", type="Holycritchance", amount=100 },				-- Divine Favour
-	-- { text="Holy spell increased by 100%%", type="Holy Shockcritchance", amount=100 },			-- Divine Favour
 	{ text="Increases critical strike chance from Fire damage spells by (%d+)%%", type="Firecritchance" },		-- Combustion in 1.11
 	{ text="Spell effects increased by (%d+)%.", type="All" },							-- Spell Blasting
 	{ text="Mana cost of your next spell is reduced by 100%%%.", type="Holycritchance", amount=25 },		-- Inner Focus

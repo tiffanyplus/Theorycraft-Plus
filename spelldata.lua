@@ -138,7 +138,7 @@ TheoryCraft_Talents = {
 	{ class="PALADIN", name="divineint", bonustype="intmultiplier", tree=1, number=3, perrank=0.02 }, -- Fixed for V+
 	{ class="PALADIN", name="illumination", bonustype="Holyillum", tree=1, number=13, perrank=0.2 }, -- Fixed for V+
 	{ class="PALADIN", name="holypower", bonustype="Holycritchance", tree=1, number=6, perrank=1 }, -- Fixed for V+
-	{ class="PALADIN", name="onehandspec", bonustype="Onehandmodifier", tree=2, number=9, perrank=0.02 }, -- Fixed for V+
+	{ class="PALADIN", name="onehandspec", bonustype="Onehandmodifier", tree=2, number=9, perrank=0.03 }, -- Fixed for V+
 	{ class="PALADIN", name="conviction", bonustype="Holycritchance", tree=3, number=2, perrank=1, }, -- Fixed for V+
 	{ class="PALADIN", name="conviction", bonustype="Healingcritchance", tree=3, number=2, perrank=-1, dontlist=1 }, -- Fixed for V+
 	{ class="PALADIN", name="searinglight", bonustype="Damagemodifier", tree=1, number=19, perrank=0.03 }, -- Fixed for V+
@@ -147,7 +147,10 @@ TheoryCraft_Talents = {
 	{ class="PALADIN", name="imppurifying", bonustype="Hammer of Wrathcritchance", tree=1, number=12, perrank=10, dontlist=1 }, -- Fixed for V+
 	{ class="PALADIN", name="healinglight", bonustype="Flash of Lightcritchance", tree=1, number=18, perrank=2 }, -- Fixed for V+
 	{ class="PALADIN", name="crusade", bonustype="Allspiritual", tree=3, number=17, perrank=0.06 }, -- Fixed for V+
-	
+	{ class="PALADIN", name="twohandspec", bonustype="Twohandmodifier", tree=3, number=13, perrank=0.04 }, -- Fixed for V+
+	{ class="PALADIN", name="lightsmercy", bonustype="Holy Lightmanacost", tree=1, number=15, perrank=-0.05, forcetree=2 },  -- Fixed for V+
+ 	{ class="PALADIN", name="lightsmercy", bonustype="Flash of Lightmanacost", tree=1, number=15, perrank=-0.05, dontlist=1 },  -- Fixed for V+
+ 	{ class="PALADIN", name="lightsmercy", bonustype="Holy Shockmanacost", tree=1, number=15, perrank=-0.05, dontlist=1 },  -- Fixed for V+
 
 	{ class="SHAMAN", name="convection", bonustype="Shockmanacost", tree=1, number=1, perrank=0.02, forceonly=1 },
 	{ class="SHAMAN", name="convection", bonustype="Lightningmanacost", tree=1, number=1, perrank=0.02, forceonly=1, dontlist=1 },

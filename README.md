@@ -5,7 +5,7 @@
 
 #### Currently supports Paladin, I will get to the other classes but for now Paladin is the one completely functional, the rest should work but may not 100% display correct calculations and certain spells are not supported
 
-Put the **TheoryCraft-plus-main** folder in \World of Warcraft\Interface\AddOns and rename it to **TheoryCraft-plus** 
+Put the **Theorycraft-plus-main** folder in \World of Warcraft\Interface\AddOns and rename it to **Theorycraft-plus** 
 
 By default only a few features are enabled, simply type in "/tc" to view the ui, and "/tc more" to list hidden commands.
 

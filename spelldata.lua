@@ -400,7 +400,7 @@ TheoryCraft_Spells = {
 			Schools={ "All", "Damage", "Holy" } },
 		{ id="Seal of Command", isseal=1, percent=1.5/3.5, percentdot=1.5/3.5/2, hasdot=1, command=1, dodps=1,
 			Schools={ "All", "Damage", "Holy" } },
-		{ id="Seal of Righteousness", isseal=1, percent=0.1, percent2=0.12, percentdot=0.5, hasdot=1, righteousness=1, dodps=1,
+		{ id="Seal of Righteousness", isseal=1, percent=0.1, percent2=0.41, percentdot=1.2, hasdot=1, righteousness=1, dodps=1,
 			Schools={ "All", "Damage", "Holy" } },
 		{ id="Holy Shock", percent=1.5/3.5, percentheal=1.5/3.5, cancrit=1, holynova=1, dontdomax=1, dodps=1,
 			Schools={ "All", "Damage", "Holy" } },

@@ -2,6 +2,7 @@ Version 1.06.61+ Vanilla+ server
 	- Added support for talent "Two-handed Weapon specialization" to include changes
 	- Added support for talent "Light's Mercy" to include changes
 	- Updated "One-handed Weapon spec" from 2% to 3%
+	- Correct dam coef for "Seal of righteousness"
 
 Version 1.06.6+ Vanilla+ server
 	- Change/Improvements

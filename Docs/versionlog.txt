@@ -26,6 +26,9 @@ Version 1.06.6+ Vanilla+ server
 	- "Seal of light" display correct calculations for healing
 	- "Seal of the Crusader" display correct calculations for holy spells and effects
 
+Version 1.06.6
+	- Added Support for SuperMacro and regular macros: display average numbers on buttons w/ macros (Blizzard bars, Discord AB, Bongos, Bartender2)
+
 Version Kronos
 	-Change/Improvements
 	- Included "Improved Shadow Bolt" to shadow calculations
